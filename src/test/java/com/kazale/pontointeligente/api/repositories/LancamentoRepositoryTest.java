@@ -65,6 +65,7 @@ public class LancamentoRepositoryTest {
 	}
 	@Test
 	public void testBuscarLancamentoPorFuncionarioIdPaginado() {
+		@SuppressWarnings("deprecation")
 		PageRequest page = new PageRequest(0,10);
 		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId,page);
 		
