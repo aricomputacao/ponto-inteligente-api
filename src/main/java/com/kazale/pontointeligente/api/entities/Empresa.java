@@ -25,12 +25,19 @@ public class Empresa implements Serializable {
 	 */
 	private static final long serialVersionUID = 409417365899898099L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "razao_social", nullable = false)
 	private String razaoSocial;
+	@Column(name = "cnpj", nullable = false)
 	private String cnpj;
+	@Column(name="data_criacao",nullable=false)
 	private Date dataCriacao;
+	@Column(name="data_atualizacao",nullable=false)
 	private Date dataAtualizacao;
+	@OneToMany(mappedBy="empresa",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Funcionario> funcionarios;
 
 	
@@ -39,8 +46,6 @@ public class Empresa implements Serializable {
 		super();
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -50,7 +55,6 @@ public class Empresa implements Serializable {
 	}
 
 
-	@Column(name = "razao_social", nullable = false)
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
@@ -59,7 +63,6 @@ public class Empresa implements Serializable {
 		this.razaoSocial = razaoSocial;
 	}
 
-	@Column(name = "cnpj", nullable = false)
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -68,7 +71,6 @@ public class Empresa implements Serializable {
 		this.cnpj = cnpj;
 	}
 
-	@Column(name="data_criacao",nullable=false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -77,7 +79,6 @@ public class Empresa implements Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
-	@Column(name="data_atualizacao",nullable=false)
 	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
@@ -86,7 +87,6 @@ public class Empresa implements Serializable {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 	
-	@OneToMany(mappedBy="empresa",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}

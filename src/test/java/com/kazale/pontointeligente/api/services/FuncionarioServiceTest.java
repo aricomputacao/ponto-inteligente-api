@@ -1,6 +1,7 @@
 package com.kazale.pontointeligente.api.services;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Optional;
 
@@ -39,8 +40,22 @@ public class FuncionarioServiceTest {
 	
 	@Test
 	public void testPersirtirFuncionario() {
-	 Funcionario funcionario =	this.funcionarioService.persirtir(new Funcionario());
+	 Funcionario funcionario =	this.funcionarioService.persistir(new Funcionario());
 		
 		assertNotNull(funcionario);
+	}
+	
+	@Test
+	public void testBuscarFuncionarioPorCpf() {
+		Optional<Funcionario> funcionararios = funcionarioService.buscarCpf("00522240313");
+		
+		assertTrue(funcionararios.isPresent());
+	}
+	
+	@Test
+	public void testBuscarFuncionarioPorId() {
+		Optional<Funcionario> funcionararios = funcionarioService.buscarPorId(1L);
+		
+		assertTrue(funcionararios.isPresent());
 	}
 }

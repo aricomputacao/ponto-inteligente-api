@@ -20,7 +20,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 	private FuncionarioRepository funcionarioRepository;
 	
 	@Override
-	public Funcionario persirtir(Funcionario funcionario) {
+	public Funcionario persistir(Funcionario funcionario) {
 		log.info("Persirtindo Funcionario {}",funcionario);
 		return this.funcionarioRepository.save(funcionario);
 	}
