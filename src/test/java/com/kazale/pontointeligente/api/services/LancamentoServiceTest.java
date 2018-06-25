@@ -45,6 +45,7 @@ public class LancamentoServiceTest {
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testBuscarLancamentoPorFuncionarioId() {
 		Page<Lancamento> lancamentos = lancamentoService.buscarFuncionarioPorId(1l, new PageRequest(0, 10));
