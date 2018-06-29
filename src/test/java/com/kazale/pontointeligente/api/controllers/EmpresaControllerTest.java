@@ -26,7 +26,7 @@ import com.kazale.pontointeligente.api.services.EmpresaService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc(secure=false )
 @ActiveProfiles("test")
 public class EmpresaControllerTest {
 	@Autowired
@@ -37,7 +37,7 @@ public class EmpresaControllerTest {
 
 	private static final String BUSCAR_EMPRESA_CNPJ_URL = "/api/empresas/cnpj/";
 	private static final Long ID = Long.valueOf(1);
-	private static final String CNPJ = "07400437000242";
+	private static final String CNPJ = "0740043700024211";
 	private static final String RAZAO_SOCIAL = "Teste";
 
 	@Test
