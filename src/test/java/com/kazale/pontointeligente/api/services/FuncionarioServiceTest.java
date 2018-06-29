@@ -47,7 +47,7 @@ public class FuncionarioServiceTest {
 	
 	@Test
 	public void testBuscarFuncionarioPorCpf() {
-		Optional<Funcionario> funcionararios = funcionarioService.buscarCpf("00522240313");
+		Optional<Funcionario> funcionararios = funcionarioService.buscarPorCpf("00522240313");
 		
 		assertTrue(funcionararios.isPresent());
 	}

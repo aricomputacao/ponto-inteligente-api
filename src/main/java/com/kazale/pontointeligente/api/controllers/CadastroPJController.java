@@ -2,20 +2,17 @@ package com.kazale.pontointeligente.api.controllers;
 
 import javax.validation.Valid;
 
-import org.hibernate.loader.plan.build.internal.CascadeStyleLoadPlanBuildingAssociationVisitationStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.kazale.pontointeligente.api.dtos.CadastroPJDto;
 import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.entities.Funcionario;
@@ -126,7 +123,7 @@ public class CadastroPJController {
 		this.empresaService.buscarPorCnpj(cadastroPJDto.getCnpj())
 				.ifPresent(emp -> result.addError(new ObjectError("empresa", "Empresa já existe")));
 
-		this.funcionarioService.buscarCpf(cadastroPJDto.getCpf())
+		this.funcionarioService.buscarPorCpf(cadastroPJDto.getCpf())
 				.ifPresent(emp -> result.addError(new ObjectError("funcionario", "CPF já existe")));
 
 		this.funcionarioService.buscarPorEmail(cadastroPJDto.getEmail())

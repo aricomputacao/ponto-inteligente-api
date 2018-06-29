@@ -20,7 +20,7 @@ public interface FuncionarioService {
 	 * @param string
 	 * @return
 	 */
-	Optional<Funcionario> buscarCpf(String cpf);
+	Optional<Funcionario> buscarPorCpf(String cpf);
 	
 	/**
 	 * Retorna um funcionario por email
